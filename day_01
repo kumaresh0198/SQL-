@@ -1,0 +1,23 @@
+1. Create a Database name as Products and table as Product Details
+* Product details should have following fields like Product ID, Product Name, Product Price
+* Apply constraints and for Product Price it should allow only price greater than 10.
+* Show the details of table as a proof of constraints applied
+
+Query:
+create database Products;
+use Products;
+
+create table Product_Details(
+Product_ID int primary key,
+Product_name varchar(20) not null,
+Product_Price int check (Product_Price >10)
+);
+
+desc Product_Details;
+
+Output:
+
+Field	        Type	      Null	Key	  Default	Extra
+Product_ID	  int	         NO	  PRI	   NULL	
+Product_name  varchar(20)	 NO		       NULL	
+Product_Price	int	         YES		     NULL	
