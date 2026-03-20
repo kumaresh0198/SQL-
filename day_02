@@ -1,0 +1,32 @@
+1. Create a table name as Travels with whatever the details needed (Apply constraints)
+
+show databases;
+use students;
+show tables;
+
+create table travels(
+trip_id tinyint primary key,
+traveller_name varchar(30) not null,
+destination varchar(15) not null,
+date_of_travel date,
+purpose varchar(15) default 'vacation'
+);
+
+desc travels;
+  
+2. Insert values into the Travels table and then add / change a column
+
+# inserting values to the table
+insert into travels (trip_id, traveller_name, destination, date_of_travel, purpose) values
+(001, 'kumar', 'usa', '2026-03-24', 'buisness travel'),
+(002, 'arjun', 'uk', '2026-04-15', 'buisness travel'),
+(003, 'sidhu', 'japan', '2026-09-24', 'medical');
+
+select * from travels;
+
+# adding a new column to the table
+alter table travels add column trip_price int;
+# changing the datatype of the column
+alter table travels change column trip_price trip_price decimal(10,3);
+# dropping the newly created column
+alter table travels drop column trip_price;
