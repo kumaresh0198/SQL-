@@ -1,0 +1,40 @@
+1. Create a table with employee details and display the details of employee name starts with letter 'B' also the salary should be above 20000.
+use students;
+show tables;
+
+create table employee_details(
+emp_id tinyint primary key,
+emp_name varchar(30) not null,
+emp_salary int check (emp_salary > 0),
+emp_depart varchar(15)
+);
+
+insert into employee_details(emp_id, emp_name, emp_salary, emp_depart) values 
+(121, 'amar', 45000, 'IT'),
+(122, 'balu', 15000, 'HR'),
+(123, 'aishu', 60000, 'ACCOUNTS'),
+(124, 'krish', 57000, 'MANAGER'),
+(125, 'david' , 50000, 'IT'),
+(126, 'babu', 40000, 'HR'),
+(127, 'karthik', 55000, 'ACCOUNTS');
+
+select * from employee_details;
+select * from employee_details where emp_name like 'b%' and emp_salary > 20000;
+
+2. Create a product table. Display  product details with price in ascending order and the product price should be below 1000 or product category as kids.
+create table product(
+product_id int primary key,
+product_category varchar(25) not null,
+product_price int not null
+);
+
+insert into product(product_id, product_category, product_price) values
+(001, 'adult', 350),
+(002, 'kids', 550),
+(003, 'new born', 750),
+(004, 'new born', 1200),
+(005, 'adult', 100),
+(006, 'kids', 1350);
+
+select * from product where product_price < 1000 or product_category = 'kids' order by product_price;
+
