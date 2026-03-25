@@ -1,0 +1,22 @@
+1. Display Minimum Salary, Maximum Salary and Average Salary with 3 sepearate columns
+
+use students;
+show tables;
+
+select * from employee_details;
+select min(emp_salary) as Minimum_Salary, max(emp_salary) as Maximum_Salary, avg(emp_salary) as Average_Salary from employee_details;
+
+2. Take a String like "GOOD MORNING" display only "GOOD", length of "MORNING". Join a word "afternoon" with "GOOD" which should be taken from "GOOD MORNING" and display result in all CAPS.
+
+# storing good morning in a variable
+set @a = 'GOOD MORNING';
+# using substr to extra good from good morning
+select substr(@a,1,4);
+# finding length of morning
+select length(substr(@a,6,12)) as length;
+
+# extracting good 
+select substr(@a,1,4) into @c;
+set @d = 'afternoon';
+# concating
+select upper(concat(@c,' ',@d)) as concated;
