@@ -1,0 +1,23 @@
+When a database stores a large amount of data, it may lead to data duplication (data redundancy) and unnecessary information. To solve this problem, normalization is used.
+
+Normalization is the process of organizing data in a database to reduce redundancy and improve data integrity. It works by dividing large tables into smaller, related tables, so that the data is stored efficiently and duplication is minimized.
+
+Normalization is generally achieved using normal forms.
+
+First Normal Form (1NF)
+A table is in the first normal form when:
+
+Each column contains atomic (single) values.
+Each record can be uniquely identified (usually using a primary key).
+
+Second Normal Form (2NF)
+A table is in the second normal form when:
+
+It is already in 1NF.
+All non-key attributes are fully dependent on the primary key and not partially dependent on it.
+
+Third Normal Form (3NF)
+A table is in the third normal form when:
+
+It is already in 2NF.
+There are no transitive dependencies, meaning non-key attributes should not depend on other non-key attributes, but only on the primary key.
