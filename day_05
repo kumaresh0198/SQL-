@@ -1,23 +1,73 @@
-When a database stores a large amount of data, it may lead to data duplication (data redundancy) and unnecessary information. To solve this problem, normalization is used.
+1. What is Normalization? Explain the concept
 
-Normalization is the process of organizing data in a database to reduce redundancy and improve data integrity. It works by dividing large tables into smaller, related tables, so that the data is stored efficiently and duplication is minimized.
+When a database stores a large amount of data, it may lead to data duplication and not useful data.
+To solve this problem, normalization is used.
 
-Normalization is generally achieved using normal forms.
+Normalization is the process of organizing data in a database to reduce redundancy and improve data integrity.
+It works by dividing large tables into smaller, related tables, so that the data is stored efficiently and duplication is minimized.
+
+Normalization is generally achieved using three normal forms.
 
 First Normal Form (1NF)
-A table is in the first normal form when:
-
-Each column contains atomic (single) values.
-Each record can be uniquely identified (usually using a primary key).
+* Each column contains atomic values.
+* Each record must be unique, so can identified by primary key.
 
 Second Normal Form (2NF)
-A table is in the second normal form when:
 
-It is already in 1NF.
-All non-key attributes are fully dependent on the primary key and not partially dependent on it.
+* If a relation is 2NF,it should be is in 1NF.
+* All non-key attributes are fully dependent on the primary key and not partially dependent on it.
 
 Third Normal Form (3NF)
-A table is in the third normal form when:
+*If a relation is 3NF,it should be is in 2NF.
+* There are no transitive dependencies among non-key attributes, it should be depend only on the primary key.
 
-It is already in 2NF.
-There are no transitive dependencies, meaning non-key attributes should not depend on other non-key attributes, but only on the primary key.
+2. Explain about different joins available in SQL with its Syntax
+
+Tables in a database are usually linked together using a common key. If we want to retrieve data from two or more tables, we use joins.
+A join combines rows from multiple tables based on a related same column between them.
+
+Types of joins:
+* Inner Join - returns only the rows that have matching values in both tables. 
+
+select column_names
+from table1
+inner join table2
+on table1.common_column = table2.common_column;
+
+* Left Join - returns all rows from the left table and only the matching rows from the right table.
+
+select column_names
+from table1
+left join table2
+on table1.common_column = table2.common_column;
+
+* Right Join - returns all rows from the right table and only the matching rows from the left table.
+
+select column_names
+from table1
+right join table2
+on table1.common_column = table2.common_column;
+
+* Full Outer Join - returns all rows from both tables. Null values for non matching rows.
+
+select column_names
+from table1
+left join table2
+on table1.common_column = table2.common_column
+unoin
+select column_names
+from table1
+right join table2
+on table1.common_column = table2.common_column;
+
+* Cross Join - each row from the first table is combined with every row from the second table.
+
+select column_names
+from table1
+cross join table2
+
+* Self Join - where a table is joined with itself.
+
+select column_names
+from table1 a, table1 b
+on a.common_column = b.common_column;
