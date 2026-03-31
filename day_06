@@ -1,0 +1,32 @@
+1. Create a table Employees and write a window function to Rank details based on Salary.
+
+use students;
+
+create table Employeees(
+emp_id int primary key,
+emp_name varchar(30) not null,
+department varchar(20),
+salary int
+);
+
+insert into Employeees values
+(1,'Kumar','IT',50000),
+(2,'Arjun','HR',40000),
+(3,'Babu','IT',60000),
+(4,'David','Finance',45000),
+(5,'Karthik','IT',55000),
+(6,'Ravi','HR',30000),
+(7,'Mani','Finance',60000);
+# this query is to retrieve all records from the table
+select * from employeees;
+
+# this query rank details based on salary 
+select emp_id,emp_name,department,salary, 
+rank() over(partition by department order by salary desc) as rank_order from employeees;
+
+
+2. Also write a window function to get maximum and minimum Salary
+
+select emp_id,emp_name,department,salary,
+min(salary) over(partition by department) as min_salary,
+max(salary) over(partition by department) as max_salary from employeees;
