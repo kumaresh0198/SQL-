@@ -1,0 +1,44 @@
+1. Create a procedure  without parameters to display student marks above 50.
+
+use students;
+show tables;
+select * from stud_recd;
+
+delimiter $$
+
+create procedure std_marks()
+begin
+select * from stud_recd where std_marks > 50;
+end $$
+
+delimiter ;
+
+call std_marks;
+
+2. Create a procedure to get input for student id and display that student details.
+
+delimiter $$
+
+create procedure std_id(in id tinyint)
+begin
+select * from stud_recd where std_roll = id;
+end $$
+
+delimiter ;
+
+call std_id(5);
+
+3. Create a procedure to get input for student id and output as student name.
+
+delimiter ## 
+
+create procedure std_name(in id tinyint,out name varchar(50))
+begin
+select std_name into name from stud_recd where std_roll = id;
+end ##
+
+delimiter ;
+
+set @name =' ';
+call std_name(3,@name);
+select @name as student_name;
