@@ -1,0 +1,14 @@
+delimiter $$
+
+create function std_mark(name varchar(10))
+returns int
+deterministic
+begin
+declare mark int;
+select std_marks into mark from stud_recd where std_name = name;
+return mark;
+end $$
+
+delimiter ;
+
+select std_mark('vicky') as mark;
